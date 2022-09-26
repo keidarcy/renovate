@@ -14,7 +14,7 @@
 
 ```json
 {
-  "name": "renovate-config-fastcore",
+  "name": "pkg-name",
   "version": "0.0.1",
   ...
   "renovate-config": {

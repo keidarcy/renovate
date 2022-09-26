@@ -4,16 +4,31 @@
   "labels": ["dependencies"],
   "dependencyDashboard": true,
   "automerge": true,
-  "rangeStrategy": "auto",
+  "major": {
+    "automerge": false
+  },
+  "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "devDependencies"
+      "groupName": "lint packages",
+      "matchPackagePatterns": [
+        "^eslint",
+        "^@typescript-eslint",
+        "^prettier",
+        "^@commitlint",
+        "^husky",
+        "^lint-staged",
+        "^pinst"
+      ]
     },
     {
-      "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "dependencies (non-major)"
+      "groupName": "TypeScript type definition packages",
+      "matchPackagePatterns": ["^@types/"]
+    },
+    {
+      "groupName": "testing packages",
+      "matchPackagePatterns": ["^jest", "-jest", "supertest", "@types/jest"]
     }
-  ]
+  ],
+  "ignorePresets": ["workarounds:typesNodeVersioning"]
 }
